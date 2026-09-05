@@ -23,8 +23,10 @@ export function score(rank, percent, minPercent) {
     let score = (100 / Math.sqrt((rank - 1) / 50 + 0.444444) - 50) *
         ((percent - (minPercent - 1)) / (100 - (minPercent - 1)));
     */
+
     // New formula
-    let score = (-24.9975*Math.pow(rank-1, 0.4) + 200) *
+    // Multiplied by 20 so Top 1 is worth 4000 points
+    let score = (-24.9975 * Math.pow(rank - 1, 0.4) + 200) * 20 *
         ((percent - (minPercent - 1)) / (100 - (minPercent - 1)));
 
     score = Math.max(0, score);
